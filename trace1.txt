@@ -1,0 +1,419 @@
+
+Thread 10 (Thread 0x7fffdaffd6c0 (LWP 43457) "main"):
+#0  0x00007ffff7b897f5 in __GI___clock_nanosleep (clock_id=clock_id@entry=0, flags=flags@entry=0, req=req@entry=0x7fffdaffce70, rem=rem@entry=0x7fffdaffce70) at ../sysdeps/unix/sysv/linux/clock_nanosleep.c:48
+        sc_cancel_oldtype = 0
+        sc_ret = <optimized out>
+        r = <optimized out>
+#1  0x00007ffff7b9b8c7 in __GI___nanosleep (req=req@entry=0x7fffdaffce70, rem=rem@entry=0x7fffdaffce70) at ../sysdeps/unix/sysv/linux/nanosleep.c:25
+        ret = <optimized out>
+#2  0x00007ffff7bac82e in __sleep (seconds=0) at ../sysdeps/posix/sleep.c:55
+        save_errno = 0
+        ts = {tv_sec = 0, tv_nsec = 332877246}
+#3  0x000055555555558f in debug_dump_loop ()
+#4  0x00007ffff7b409eb in start_thread (arg=<optimized out>) at pthread_create.c:444
+        ret = <optimized out>
+        pd = <optimized out>
+        unwind_buf = {cancel_jmp_buf = {{jmp_buf = {140737349158672, 4869243812169793570, -120, 88, 140737488344832, 140736859197440, -4869320776405860318, -4869261894793150430}, mask_was_saved = 0}}, priv = {pad = {0x0, 0x0, 0x0, 0x0}, data = {prev = 0x0, cleanup = 0x0, canceltype = 0}}}
+        not_first_call = <optimized out>
+#5  0x00007ffff7bc47cc in clone3 () at ../sysdeps/unix/sysv/linux/x86_64/clone3.S:78
+
+Thread 9 (Thread 0x7fffdb7fe6c0 (LWP 43456) "pool-main"):
+#0  syscall () at ../sysdeps/unix/sysv/linux/x86_64/syscall.S:38
+#1  0x00007ffff7d49c23 in g_cond_wait_until (cond=<optimized out>, mutex=0x55555581ef00, end_time=<optimized out>) at ../glib/glib/gthread-posix.c:1677
+        span_arg = {tv_sec = 14, tv_nsec = 999998195}
+        now = {tv_sec = 21279, tv_nsec = 934857805}
+        span = {tv_sec = <optimized out>, tv_nsec = <optimized out>}
+        sampled = 0
+        res = <optimized out>
+        success = <optimized out>
+#2  0x00007ffff7cbb185 in g_async_queue_pop_intern_unlocked (queue=0x55555581ef00, wait=1, end_time=21294934856) at ../glib/glib/gasyncqueue.c:428
+        retval = <optimized out>
+        __func__ = "g_async_queue_pop_intern_unlocked"
+#3  0x00007ffff7cbb2e7 in g_async_queue_timeout_pop (queue=0x55555581ef00, timeout=<optimized out>) at ../glib/glib/gasyncqueue.c:551
+        end_time = 21294934856
+        retval = <optimized out>
+        __func__ = "g_async_queue_timeout_pop"
+#4  0x00007ffff7d2431e in g_thread_pool_wait_for_new_pool () at ../glib/glib/gthreadpool.c:181
+        pool = <optimized out>
+        local_max_idle_time = 15000
+        local_wakeup_thread_serial = <optimized out>
+        last_wakeup_thread_serial = 0
+        have_relayed_thread_marker = <optimized out>
+        free_pool = <optimized out>
+        task = <optimized out>
+        pool = <optimized out>
+#5  g_thread_pool_thread_proxy (data=<optimized out>) at ../glib/glib/gthreadpool.c:408
+        free_pool = <optimized out>
+        task = <optimized out>
+        pool = <optimized out>
+#6  0x00007ffff7d219a5 in g_thread_proxy (data=0x7fffe4001290) at ../glib/glib/gthread.c:831
+        thread = 0x7fffe4001290
+        __func__ = "g_thread_proxy"
+#7  0x00007ffff7b409eb in start_thread (arg=<optimized out>) at pthread_create.c:444
+        ret = <optimized out>
+        pd = <optimized out>
+        unwind_buf = {cancel_jmp_buf = {{jmp_buf = {140737349158672, 4869243812169793570, -120, 0, 140737326283728, 140736867590144, -4869321876454359006, -4869261894793150430}, mask_was_saved = 0}}, priv = {pad = {0x0, 0x0, 0x0, 0x0}, data = {prev = 0x0, cleanup = 0x0, canceltype = 0}}}
+        not_first_call = <optimized out>
+#8  0x00007ffff7bc47cc in clone3 () at ../sysdeps/unix/sysv/linux/x86_64/clone3.S:78
+
+Thread 8 (Thread 0x7fffdbfff6c0 (LWP 43455) "src_2:src"):
+#0  syscall () at ../sysdeps/unix/sysv/linux/x86_64/syscall.S:38
+#1  0x00007ffff7d49247 in g_cond_wait (cond=0x555555810478, mutex=0x555555810470) at ../glib/glib/gthread-posix.c:1552
+        saved_errno = 0
+        res = <optimized out>
+        sampled = 395
+#2  0x00007ffff7537c58 in gst_aggregator_pad_chain_internal (self=self@entry=0x5555557d9500 [GstAggregator|audiomixer0], aggpad=aggpad@entry=0x5555558104e0 [GstAggregatorPad|sink_2], buffer=buffer@entry=0x7fffd4005b80 [None], head=head@entry=1) at ../gstreamer/subprojects/gstreamer/libs/gst/base/gstaggregator.c:3174
+        flow_return = <optimized out>
+        buf_pts = 9079002267 [0:00:09.079002267]
+        __func__ = "gst_aggregator_pad_chain_internal"
+#3  0x00007ffff7539dd9 in gst_aggregator_pad_chain (pad=0x5555558104e0 [GstPad|sink_2], object=0x5555557d9500 [GstObject|audiomixer0], buffer=0x7fffd4005b80 [None]) at ../gstreamer/subprojects/gstreamer/libs/gst/base/gstaggregator.c:3254
+        ret = <optimized out>
+        aggpad = 0x5555558104e0 [GstAggregatorPad|sink_2]
+        __func__ = "gst_aggregator_pad_chain"
+#4  0x00007ffff7ed4776 in gst_pad_chain_data_unchecked (pad=pad@entry=0x5555558104e0 [GstPad|sink_2], type=type@entry=4112, data=data@entry=0x7fffd4005b80) at ../gstreamer/subprojects/gstreamer/gst/gstpad.c:4463
+        chainfunc = 0x7ffff7539d80 <gst_aggregator_pad_chain>
+        ret = <optimized out>
+        parent = 0x5555557d9500 [GstObject|audiomixer0]
+        handled = <optimized out>
+        __func__ = "gst_pad_chain_data_unchecked"
+#5  0x00007ffff7ed7a58 in gst_pad_push_data (pad=pad@entry=0x555555810100 [GstPad|src], type=type@entry=4112, data=data@entry=0x7fffd4005b80) at ../gstreamer/subprojects/gstreamer/gst/gstpad.c:4739
+        peer = 0x5555558104e0 [GstPad|sink_2]
+        ret = GST_FLOW_OK
+        handled = 0
+        __func__ = "gst_pad_push_data"
+#6  0x00007ffff7ed8095 in gst_pad_push (pad=pad@entry=0x555555810100 [GstPad|src], buffer=0x7fffd4005b80 [None]) at ../gstreamer/subprojects/gstreamer/gst/gstpad.c:4858
+        res = <optimized out>
+        __func__ = "gst_pad_push"
+#7  0x00007ffff7563a5b in gst_base_src_loop (pad=0x555555810100 [GstPad|src]) at ../gstreamer/subprojects/gstreamer/libs/gst/base/gstbasesrc.c:3035
+        src = 0x55555580db10 [GstBaseSrc|src_2]
+        buf = 0x7fffd4005b80 [None]
+        ret = <optimized out>
+        position = <optimized out>
+        eos = 0
+        blocksize = <optimized out>
+        pending_events = <optimized out>
+        tmp = <optimized out>
+        __func__ = "gst_base_src_loop"
+#8  0x00007ffff7f04283 in gst_task_func (task=0x555555824f90 [GstTask|src_2:src]) at ../gstreamer/subprojects/gstreamer/gst/gsttask.c:384
+        lock = 0x555555810170
+        tself = 0x7fffe40010d0
+        priv = 0x555555824f40
+        __func__ = "gst_task_func"
+#9  0x00007ffff7d24483 in g_thread_pool_thread_proxy (data=<optimized out>) at ../glib/glib/gthreadpool.c:350
+        task = 0x555555820be0
+        pool = 0x5555557da410
+#10 0x00007ffff7d219a5 in g_thread_proxy (data=0x7fffe40010d0) at ../glib/glib/gthread.c:831
+        thread = 0x7fffe40010d0
+        __func__ = "g_thread_proxy"
+#11 0x00007ffff7b409eb in start_thread (arg=<optimized out>) at pthread_create.c:444
+        ret = <optimized out>
+        pd = <optimized out>
+        unwind_buf = {cancel_jmp_buf = {{jmp_buf = {140737349158672, 4869243812169793570, -120, 0, 140737326283728, 140736875982848, -4869322976502857694, -4869261894793150430}, mask_was_saved = 0}}, priv = {pad = {0x0, 0x0, 0x0, 0x0}, data = {prev = 0x0, cleanup = 0x0, canceltype = 0}}}
+        not_first_call = <optimized out>
+#12 0x00007ffff7bc47cc in clone3 () at ../sysdeps/unix/sysv/linux/x86_64/clone3.S:78
+
+Thread 7 (Thread 0x7ffff4d6d6c0 (LWP 43454) "src_0:src"):
+#0  syscall () at ../sysdeps/unix/sysv/linux/x86_64/syscall.S:38
+#1  0x00007ffff7d4911b in g_mutex_lock_slowpath (mutex=0x5555557d9518) at ../glib/glib/gthread-posix.c:1465
+        saved_errno = 0
+        res = <optimized out>
+#2  0x00007ffff7d49157 in g_mutex_lock (mutex=mutex@entry=0x5555557d9518) at ../glib/glib/gthread-posix.c:1494
+#3  0x00007ffff7eadf32 in gst_element_remove_pad (element=element@entry=0x5555557d9500 [GstElement|audiomixer0], pad=pad@entry=0x7fffe000cdf0 [GstPad|sink_6339]) at ../gstreamer/subprojects/gstreamer/gst/gstelement.c:905
+        peer = <optimized out>
+        __func__ = "gst_element_remove_pad"
+#4  0x00007ffff7534f03 in gst_aggregator_release_pad (element=0x5555557d9500 [GstElement|audiomixer0], pad=0x7fffe000cdf0 [GstPad|sink_6339]) at ../gstreamer/subprojects/gstreamer/libs/gst/base/gstaggregator.c:2036
+        self = 0x5555557d9500 [GstAggregator|audiomixer0]
+        aggpad = 0x7fffe000cdf0 [GstAggregatorPad|sink_6339]
+        __func__ = "gst_aggregator_release_pad"
+#5  0x0000555555555397 in event_probe_cb ()
+#6  0x00007ffff7ed1de6 in probe_hook_marshal (hook=0x555555809fa0, data=0x7ffff4d6ca40) at ../gstreamer/subprojects/gstreamer/gst/gstpad.c:3669
+        pad = <optimized out>
+        info = 0x7ffff4d6cb70
+        type = <optimized out>
+        flags = <optimized out>
+        callback = 0x555555555329 <event_probe_cb>
+        ret = <optimized out>
+        original_data = 0x7fffe0001c00
+        __func__ = "probe_hook_marshal"
+#7  0x00007ffff7cd348e in g_hook_list_marshal (hook_list=0x555555809258, may_recurse=1, marshaller=0x7ffff7ed1b10 <probe_hook_marshal>, data=0x7ffff4d6ca40) at ../glib/glib/ghook.c:674
+        was_in_call = 0
+        hook = 0x555555809fa0
+        __func__ = "g_hook_list_marshal"
+#8  0x00007ffff7ed2446 in do_probe_callbacks (pad=pad@entry=0x5555558091c0 [GstPad|src], info=info@entry=0x7ffff4d6cb70, defaultval=defaultval@entry=GST_FLOW_OK) at ../gstreamer/subprojects/gstreamer/gst/gstpad.c:3853
+        data = {pad = 0x5555558091c0 [GstPad|src], info = 0x7ffff4d6cb70, dropped = 0, pass = 0, handled = 0, marshalled = 0, called_probes = 0x7ffff4d6ca80, n_called_probes = 1, called_probes_size = 16, retry = 0}
+        cookie = 1
+        is_block = <optimized out>
+        called_probes = {1, 0, 140737301105872, 140737353717872, 140736951521616, 93824992236547, 2, 140737488345456, 140737301105872, 93824995070400, 4589181666356977193, 140737488345456, 93824995073952, 140737352900084, 140737353717872, 93824995070400}
+        __func__ = "do_probe_callbacks"
+#9  0x00007ffff7ed6a1f in gst_pad_push_event_unchecked (pad=pad@entry=0x5555558091c0 [GstPad|src], event=0x7fffe0001c00 [None], type=type@entry=GST_PAD_PROBE_TYPE_EVENT_DOWNSTREAM) at ../gstreamer/subprojects/gstreamer/gst/gstpad.c:5521
+        info = {type = 4162, id = 1, data = 0x7fffe0001c00, offset = 18446744073709551615, size = 4294967295, ABI = {_gst_reserved = {0x0, 0x0, 0x0, 0x0}, abi = {flow_ret = GST_FLOW_OK}}}
+        ret = <optimized out>
+        peerpad = <optimized out>
+        event_type = GST_EVENT_STREAM_START
+        old_pad_offset = 0
+        __func__ = "gst_pad_push_event_unchecked"
+#10 0x00007ffff7ed6cf9 in push_sticky (pad=pad@entry=0x5555558091c0 [GstPad|src], ev=ev@entry=0x7ffff4d6cc60, user_data=user_data@entry=0x7ffff4d6ccc0) at ../gstreamer/subprojects/gstreamer/gst/gstpad.c:4057
+        data = 0x7ffff4d6ccc0
+        event = 0x7fffe0001c00 [None]
+        data_sticky_order = <optimized out>
+        __func__ = "push_sticky"
+#11 0x00007ffff7ecb52e in events_foreach (pad=0x5555558091c0 [GstPad|src], func=0x7ffff7ed6c50 <push_sticky>, user_data=0x7ffff4d6ccc0) at ../gstreamer/subprojects/gstreamer/gst/gstpad.c:613
+        ev = 0x555555582eb0
+        ev_ret = {received = 0, sticky_order = 10254, event = 0x7fffe0001c00 [None]}
+        i = 0
+        len = 4
+        events = 0x555555809430
+        ret = <optimized out>
+        cookie = 4
+#12 0x00007ffff7ed787e in check_sticky (event=0x0, pad=0x5555558091c0 [GstPad|src]) at ../gstreamer/subprojects/gstreamer/gst/gstpad.c:4116
+        data = {ret = GST_FLOW_OK, was_eos = 0, event = 0x0}
+        _g_boolean_var_348 = <optimized out>
+        peer = <optimized out>
+        ret = <optimized out>
+        handled = 0
+        __func__ = "gst_pad_push_data"
+#13 gst_pad_push_data (pad=pad@entry=0x5555558091c0 [GstPad|src], type=type@entry=4112, data=data@entry=0x7fffe0009150) at ../gstreamer/subprojects/gstreamer/gst/gstpad.c:4721
+        _g_boolean_var_348 = <optimized out>
+        peer = <optimized out>
+        ret = <optimized out>
+        handled = 0
+        __func__ = "gst_pad_push_data"
+#14 0x00007ffff7ed8095 in gst_pad_push (pad=pad@entry=0x5555558091c0 [GstPad|src], buffer=0x7fffe0009150 [None]) at ../gstreamer/subprojects/gstreamer/gst/gstpad.c:4858
+        res = <optimized out>
+        __func__ = "gst_pad_push"
+#15 0x00007ffff7563a5b in gst_base_src_loop (pad=0x5555558091c0 [GstPad|src]) at ../gstreamer/subprojects/gstreamer/libs/gst/base/gstbasesrc.c:3035
+        src = 0x555555806ba0 [GstBaseSrc|src_0]
+        buf = 0x7fffe0009150 [None]
+        ret = <optimized out>
+        position = <optimized out>
+        eos = 0
+        blocksize = <optimized out>
+        pending_events = <optimized out>
+        tmp = <optimized out>
+        __func__ = "gst_base_src_loop"
+#16 0x00007ffff7f04283 in gst_task_func (task=0x555555824590 [GstTask|src_0:src]) at ../gstreamer/subprojects/gstreamer/gst/gsttask.c:384
+        lock = 0x555555809230
+        tself = 0x7fffe4000f10
+        priv = 0x555555824540
+        __func__ = "gst_task_func"
+#17 0x00007ffff7d24483 in g_thread_pool_thread_proxy (data=<optimized out>) at ../glib/glib/gthreadpool.c:350
+        task = 0x55555580a380
+        pool = 0x5555557da410
+#18 0x00007ffff7d219a5 in g_thread_proxy (data=0x7fffe4000f10) at ../glib/glib/gthread.c:831
+        thread = 0x7fffe4000f10
+        __func__ = "g_thread_proxy"
+#19 0x00007ffff7b409eb in start_thread (arg=<optimized out>) at pthread_create.c:444
+        ret = <optimized out>
+        pd = <optimized out>
+        unwind_buf = {cancel_jmp_buf = {{jmp_buf = {140737349158672, 4869243812169793570, -120, 0, 140737326283728, 140737292718080, -4869254453520875486, -4869261894793150430}, mask_was_saved = 0}}, priv = {pad = {0x0, 0x0, 0x0, 0x0}, data = {prev = 0x0, cleanup = 0x0, canceltype = 0}}}
+        not_first_call = <optimized out>
+#20 0x00007ffff7bc47cc in clone3 () at ../sysdeps/unix/sysv/linux/x86_64/clone3.S:78
+
+Thread 6 (Thread 0x7ffff556e6c0 (LWP 43453) "src_1:src"):
+#0  syscall () at ../sysdeps/unix/sysv/linux/x86_64/syscall.S:38
+#1  0x00007ffff7d4911b in g_mutex_lock_slowpath (mutex=0x5555557d9518) at ../glib/glib/gthread-posix.c:1465
+        saved_errno = 0
+        res = <optimized out>
+#2  0x00007ffff7d49157 in g_mutex_lock (mutex=mutex@entry=0x5555557d9518) at ../glib/glib/gthread-posix.c:1494
+#3  0x00007ffff753dd7f in gst_aggregator_default_create_new_pad (self=0x5555557d9500 [GstAggregator|audiomixer0], templ=0x5555557d9130 [GstPadTemplate|sink_%u], req_name=0x0, caps=<optimized out>) at ../gstreamer/subprojects/gstreamer/libs/gst/base/gstaggregator.c:2061
+        agg_pad = <optimized out>
+        priv = 0x5555557d93e0
+        serial = 0
+        name = 0x0
+        pad_type = 0x5555557d8770 [GstAudioMixerPad/GstAudioAggregatorConvertPad/GstAudioAggregatorPad/GstAggregatorPad/GstPad/GstObject/GInitiallyUnowned]
+        __func__ = "gst_aggregator_default_create_new_pad"
+#4  0x00007ffff753514b in gst_aggregator_request_new_pad (element=0x5555557d9500 [GstElement|audiomixer0], templ=<optimized out>, req_name=<optimized out>, caps=<optimized out>) at ../gstreamer/subprojects/gstreamer/libs/gst/base/gstaggregator.c:2115
+        self = 0x5555557d9500 [GstAggregator|audiomixer0]
+        agg_pad = <optimized out>
+        klass = <optimized out>
+        priv = 0x5555557d93e0
+        __func__ = "gst_aggregator_request_new_pad"
+#5  0x00007ffff7fbaf6a in gst_audiomixer_request_new_pad (element=0x5555557d9500 [GstElement|audiomixer0], templ=<optimized out>, req_name=<optimized out>, caps=<optimized out>) at ../gstreamer/subprojects/gst-plugins-base/gst/audiomixer/gstaudiomixer.c:253
+        newpad = <optimized out>
+        __func__ = "gst_audiomixer_request_new_pad"
+#6  0x00007ffff7eaaed1 in _gst_element_request_pad (element=0x5555557d9500 [GstElement|audiomixer0], templ=0x5555557d9130 [GstPadTemplate|sink_%u], name=0x0, caps=0x0) at ../gstreamer/subprojects/gstreamer/gst/gstelement.c:1179
+        newpad = 0x0 [GstPad]
+        oclass = 0x5555557d71f0
+        __func__ = "_gst_element_request_pad"
+#7  0x00005555555553e0 in event_probe_cb ()
+#8  0x00007ffff7ed1de6 in probe_hook_marshal (hook=0x55555580a2c0, data=0x7ffff556dbb0) at ../gstreamer/subprojects/gstreamer/gst/gstpad.c:3669
+        pad = <optimized out>
+        info = 0x7ffff556dcd0
+        type = <optimized out>
+        flags = <optimized out>
+        callback = 0x555555555329 <event_probe_cb>
+        ret = <optimized out>
+        original_data = 0x7fffdc004d70
+        __func__ = "probe_hook_marshal"
+#9  0x00007ffff7cd348e in g_hook_list_marshal (hook_list=0x55555580cf18, may_recurse=1, marshaller=0x7ffff7ed1b10 <probe_hook_marshal>, data=0x7ffff556dbb0) at ../glib/glib/ghook.c:674
+        was_in_call = 0
+        hook = 0x55555580a2c0
+        __func__ = "g_hook_list_marshal"
+#10 0x00007ffff7ed2446 in do_probe_callbacks (pad=pad@entry=0x55555580ce80 [GstPad|src], info=info@entry=0x7ffff556dcd0, defaultval=defaultval@entry=GST_FLOW_OK) at ../gstreamer/subprojects/gstreamer/gst/gstpad.c:3853
+        data = {pad = 0x55555580ce80 [GstPad|src], info = 0x7ffff556dcd0, dropped = 0, pass = 0, handled = 0, marshalled = 0, called_probes = 0x7ffff556dbf0, n_called_probes = 1, called_probes_size = 16, retry = 0}
+        cookie = 1
+        is_block = <optimized out>
+        called_probes = {1, 140737352058526, 140736884413472, 140737352047475, 140736884395376, 18446744073709551615, 18446744073709551615, 93824995076264, 93824995076240, 140737343001186, 140736884375600, 0, 4160329840, 93824995053376, 93824995076512, 140737309498800}
+        __func__ = "do_probe_callbacks"
+#11 0x00007ffff7ed79da in gst_pad_push_data (pad=pad@entry=0x55555580ce80 [GstPad|src], type=type@entry=4112, data=data@entry=0x7fffdc004d70) at ../gstreamer/subprojects/gstreamer/gst/gstpad.c:4717
+        info = {type = 4114, id = 1, data = 0x7fffdc004d70, offset = 18446744073709551615, size = 4294967295, ABI = {_gst_reserved = {0x0, 0x0, 0x0, 0x0}, abi = {flow_ret = GST_FLOW_OK}}}
+        peer = <optimized out>
+        ret = GST_FLOW_OK
+        handled = 0
+        __func__ = "gst_pad_push_data"
+#12 0x00007ffff7ed8095 in gst_pad_push (pad=pad@entry=0x55555580ce80 [GstPad|src], buffer=0x7fffdc004d70 [None]) at ../gstreamer/subprojects/gstreamer/gst/gstpad.c:4858
+        res = <optimized out>
+        __func__ = "gst_pad_push"
+#13 0x00007ffff7563a5b in gst_base_src_loop (pad=0x55555580ce80 [GstPad|src]) at ../gstreamer/subprojects/gstreamer/libs/gst/base/gstbasesrc.c:3035
+        src = 0x55555580a890 [GstBaseSrc|src_1]
+        buf = 0x7fffdc004d70 [None]
+        ret = <optimized out>
+        position = <optimized out>
+        eos = 0
+        blocksize = <optimized out>
+        pending_events = <optimized out>
+        tmp = <optimized out>
+        __func__ = "gst_base_src_loop"
+#14 0x00007ffff7f04283 in gst_task_func (task=0x555555824a90 [GstTask|src_1:src]) at ../gstreamer/subprojects/gstreamer/gst/gsttask.c:384
+        lock = 0x55555580cef0
+        tself = 0x7fffe4000d50
+        priv = 0x555555824a40
+        __func__ = "gst_task_func"
+#15 0x00007ffff7d24483 in g_thread_pool_thread_proxy (data=<optimized out>) at ../glib/glib/gthreadpool.c:350
+        task = 0x55555580a340
+        pool = 0x5555557da410
+#16 0x00007ffff7d219a5 in g_thread_proxy (data=0x7fffe4000d50) at ../glib/glib/gthread.c:831
+        thread = 0x7fffe4000d50
+        __func__ = "g_thread_proxy"
+#17 0x00007ffff7b409eb in start_thread (arg=<optimized out>) at pthread_create.c:444
+        ret = <optimized out>
+        pd = <optimized out>
+        unwind_buf = {cancel_jmp_buf = {{jmp_buf = {140737349158672, 4869243812169793570, -120, 0, 140737326283728, 140737301110784, -4869255553569374174, -4869261894793150430}, mask_was_saved = 0}}, priv = {pad = {0x0, 0x0, 0x0, 0x0}, data = {prev = 0x0, cleanup = 0x0, canceltype = 0}}}
+        not_first_call = <optimized out>
+#18 0x00007ffff7bc47cc in clone3 () at ../sysdeps/unix/sysv/linux/x86_64/clone3.S:78
+
+Thread 5 (Thread 0x7ffff5d6f6c0 (LWP 43452) "audiomixer0:src"):
+#0  gst_audio_aggregator_aggregate (agg=0x5555557d9500 [GstAggregator|audiomixer0], timeout=0) at ../gstreamer/subprojects/gst-plugins-base/gst-libs/gst/audio/gstaudioaggregator.c:2475
+        pad = <optimized out>
+        aggpad = <optimized out>
+        element = 0x5555557d9500 [GstElement|audiomixer0]
+        aagg = 0x5555557d9500 [GstAudioAggregator|audiomixer0]
+        iter = Python Exception <class 'gdb.MemoryError'>: Cannot access memory at address 0xbcf5fbba7d2b5582
+#1  0x00007ffff753bc6a in gst_aggregator_aggregate_func (self=0x5555557d9500 [GstAggregator|audiomixer0]) at ../gstreamer/subprojects/gstreamer/libs/gst/base/gstaggregator.c:1431
+        flow_return = <optimized out>
+        events_query_data = {processed_event = 1, flow_ret = GST_FLOW_OK}
+        priv = 0x5555557d93e0
+        klass = 0x5555557d71f0
+        timeout = <optimized out>
+        __func__ = "gst_aggregator_aggregate_func"
+#2  0x00007ffff7f04283 in gst_task_func (task=0x555555823c30 [GstTask|audiomixer0:src]) at ../gstreamer/subprojects/gstreamer/gst/gsttask.c:384
+        lock = 0x5555557f9e60
+        tself = 0x7fffe4000b90
+        priv = 0x555555823be0
+        __func__ = "gst_task_func"
+#3  0x00007ffff7d24483 in g_thread_pool_thread_proxy (data=<optimized out>) at ../glib/glib/gthreadpool.c:350
+        task = 0x55555577bfe0
+        pool = 0x5555557da410
+#4  0x00007ffff7d219a5 in g_thread_proxy (data=0x7fffe4000b90) at ../glib/glib/gthread.c:831
+        thread = 0x7fffe4000b90
+        __func__ = "g_thread_proxy"
+#5  0x00007ffff7b409eb in start_thread (arg=<optimized out>) at pthread_create.c:444
+        ret = <optimized out>
+        pd = <optimized out>
+        unwind_buf = {cancel_jmp_buf = {{jmp_buf = {140737349158672, 4869243812169793570, -120, 0, 140737326283728, 140737309503488, -4869256653617872862, -4869261894793150430}, mask_was_saved = 0}}, priv = {pad = {0x0, 0x0, 0x0, 0x0}, data = {prev = 0x0, cleanup = 0x0, canceltype = 0}}}
+        not_first_call = <optimized out>
+#6  0x00007ffff7bc47cc in clone3 () at ../sysdeps/unix/sysv/linux/x86_64/clone3.S:78
+Warning: the current language does not match this frame.
+
+Thread 4 (Thread 0x7ffff65706c0 (LWP 43451) "pool-spawner"):
+#0  syscall () at ../sysdeps/unix/sysv/linux/x86_64/syscall.S:38
+#1  0x00007ffff7d49247 in g_cond_wait (cond=0x7ffff0000be8, mutex=0x7ffff0000be0) at ../glib/glib/gthread-posix.c:1552
+        saved_errno = 0
+        res = <optimized out>
+        sampled = 4
+#2  0x00007ffff7cbb1b4 in g_async_queue_pop_intern_unlocked (queue=0x7ffff0000be0, wait=1, end_time=-1) at ../glib/glib/gasyncqueue.c:425
+        retval = <optimized out>
+        __func__ = "g_async_queue_pop_intern_unlocked"
+#3  0x00007ffff7d23a2e in g_thread_pool_spawn_thread (data=<optimized out>) at ../glib/glib/gthreadpool.c:311
+        spawn_thread_data = <optimized out>
+        thread = 0x0
+        error = 0x0
+        prgname = <optimized out>
+        name = "pool-main\000\000\000\000\000\000"
+#4  0x00007ffff7d219a5 in g_thread_proxy (data=0x555555818f30) at ../glib/glib/gthread.c:831
+        thread = 0x555555818f30
+        __func__ = "g_thread_proxy"
+#5  0x00007ffff7b409eb in start_thread (arg=<optimized out>) at pthread_create.c:444
+        ret = <optimized out>
+        pd = <optimized out>
+        unwind_buf = {cancel_jmp_buf = {{jmp_buf = {140737349158672, 4869243812169793570, -120, 88, 140737488342416, 140737317896192, -4869257753666371550, -4869261894793150430}, mask_was_saved = 0}}, priv = {pad = {0x0, 0x0, 0x0, 0x0}, data = {prev = 0x0, cleanup = 0x0, canceltype = 0}}}
+        not_first_call = <optimized out>
+#6  0x00007ffff7bc47cc in clone3 () at ../sysdeps/unix/sysv/linux/x86_64/clone3.S:78
+
+Thread 3 (Thread 0x7ffff6d716c0 (LWP 43450) "threaded-ml"):
+#0  0x00007ffff7bb6f6f in __GI___poll (fds=fds@entry=0x7ffff0000bc0, nfds=nfds@entry=2, timeout=timeout@entry=416) at ../sysdeps/unix/sysv/linux/poll.c:29
+        sc_ret = -516
+        sc_cancel_oldtype = 0
+#1  0x00007ffff742b8c7 in poll (__timeout=416, __nfds=2, __fds=0x7ffff0000bc0) at /usr/include/bits/poll2.h:39
+        mutex = 0x555555803b50
+        r = <optimized out>
+        __func__ = "poll_func"
+        __PRETTY_FUNCTION__ = "poll_func"
+#2  poll_func (ufds=0x7ffff0000bc0, nfds=2, timeout=416, userdata=0x555555803b50) at ../pulseaudio/src/pulse/thread-mainloop.c:70
+        mutex = 0x555555803b50
+        r = <optimized out>
+        __func__ = "poll_func"
+        __PRETTY_FUNCTION__ = "poll_func"
+#3  0x00007ffff741546c in pa_mainloop_poll (m=m@entry=0x55555581ef50) at ../pulseaudio/src/pulse/mainloop.c:863
+        __func__ = "pa_mainloop_poll"
+        __PRETTY_FUNCTION__ = "pa_mainloop_poll"
+#4  0x00007ffff741f42c in pa_mainloop_iterate (m=m@entry=0x55555581ef50, block=block@entry=1, retval=retval@entry=0x0) at ../pulseaudio/src/pulse/mainloop.c:945
+        r = 0
+        __func__ = "pa_mainloop_iterate"
+        __PRETTY_FUNCTION__ = "pa_mainloop_iterate"
+#5  0x00007ffff741f4e1 in pa_mainloop_run (m=0x55555581ef50, retval=0x0) at ../pulseaudio/src/pulse/mainloop.c:963
+        r = <optimized out>
+#6  0x00007ffff742fc02 in thread (userdata=0x555555826ff0) at ../pulseaudio/src/pulse/thread-mainloop.c:101
+        m = 0x555555826ff0
+        mask = {__val = {18446744067267100671, 140737349223256, 140737326288896, 140737219922800, 1, 18446744073709551552, 0, 40, 140737219919920, 140737349223256, 0, 140737219922848, 140737326288896, 140737349225645, 140737219919920, 656}}
+        prev_mask = {__val = {0, 0, 0, 0, 0, 0, 0, 0, 135168, 140737349212255, 135168, 135168, 0, 140737349223256, 0, 140737219922144}}
+        sa = {__sigaction_handler = {sa_handler = 0x0, sa_sigaction = 0x0}, sa_mask = {__val = {0, 0, 9348642973973816576, 1465341783, 1, 93824995159888, 0, 0, 140737488343856, 140737326288896, 140737341682747, 0, 93824995159888, 140737334676752, 140737341344597, 140737326288896}}, sa_flags = 0, sa_restorer = 0x0}
+#7  0x00007ffff73ccc67 in internal_thread_func (userdata=0x555555803e30) at ../pulseaudio/src/pulsecore/thread-posix.c:81
+        t = 0x555555803e30
+        __func__ = "internal_thread_func"
+        __PRETTY_FUNCTION__ = "internal_thread_func"
+#8  0x00007ffff7b409eb in start_thread (arg=<optimized out>) at pthread_create.c:444
+        ret = <optimized out>
+        pd = <optimized out>
+        unwind_buf = {cancel_jmp_buf = {{jmp_buf = {140737349158672, 4869243812169793570, -120, 88, 140737488343680, 140737326288896, -4869258862304804830, -4869261894793150430}, mask_was_saved = 0}}, priv = {pad = {0x0, 0x0, 0x0, 0x0}, data = {prev = 0x0, cleanup = 0x0, canceltype = 0}}}
+        not_first_call = <optimized out>
+#9  0x00007ffff7bc47cc in clone3 () at ../sysdeps/unix/sysv/linux/x86_64/clone3.S:78
+
+Thread 1 (Thread 0x7ffff76ed740 (LWP 43446) "main"):
+#0  0x00007ffff7bb6f6f in __GI___poll (fds=0x5555556a6310, nfds=1, timeout=-1) at ../sysdeps/unix/sysv/linux/poll.c:29
+        sc_ret = -516
+        sc_cancel_oldtype = 0
+#1  0x00007ffff7d4e206 in g_main_context_poll_unlocked (priority=2147483647, n_fds=1, fds=0x5555556a6310, timeout=<optimized out>, context=0x555555826650) at ../glib/glib/gmain.c:4653
+        ret = <optimized out>
+        errsv = <optimized out>
+        poll_func = 0x7ffff7cf69f0 <g_poll>
+        max_priority = 2147483647
+        timeout = -1
+        some_ready = <optimized out>
+        nfds = 1
+        allocated_nfds = 1
+        fds = 0x5555556a6310
+        begin_time_nsec = 21279437514831
+#2  g_main_context_iterate_unlocked.isra.0 (context=0x555555826650, block=block@entry=1, dispatch=dispatch@entry=1, self=<optimized out>) at ../glib/glib/gmain.c:4344
+        max_priority = 2147483647
+        timeout = -1
+        some_ready = <optimized out>
+        nfds = 1
+        allocated_nfds = 1
+        fds = 0x5555556a6310
+        begin_time_nsec = 21279437514831
+#3  0x00007ffff7cf0b47 in g_main_loop_run (loop=0x55555580a380) at ../glib/glib/gmain.c:4551
+        __func__ = "g_main_loop_run"
+#4  0x00005555555558cb in main ()
+Detaching from program: /home/willi/projects/go-gst/segfault-repro/main, process 43446
+[Inferior 1 (process 43446) detached]
