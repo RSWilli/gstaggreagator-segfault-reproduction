@@ -18,6 +18,7 @@ typedef struct {
     GstElement *src;
     GstPad *srcpad;
     GstPad *currentMixerPad;
+    int padcount;
     int passed_buffers;
 } ThreadData;
 
@@ -118,6 +119,7 @@ int main(int argc, char *argv[]) {
     for (int i = 0; i < NUM_THREADS; i++) {
         thread_data[i].thread_num = i;
         thread_data[i].pipeline_data = &pipeline_data;
+        thread_data[i].passed_buffers = 0;
         // if (pthread_create(&threads[i], NULL, setup_thread, (void *)&thread_data[i])) {
         //     fprintf(stderr, "Error creating thread\n");
         //     return 1;
